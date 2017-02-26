@@ -15,10 +15,13 @@ const port = 3000;
 // CORS Middleware
 app.use(cors());
 
-app.use('/users',users);
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Body Parser Middleware
 app.use(bodyParser.json());
+
+app.use('/users',users);
 
 //Index Route
 app.get('/', (req,res) => {
